@@ -11,7 +11,10 @@ phases:
     commands:
       - echo Building...
       - mvn package -DskipTests
+
 artifacts:
   files:
     - target/*.war
+    - appspec.yml
+    - scripts/*
 
