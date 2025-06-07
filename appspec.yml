@@ -1,0 +1,13 @@
+version: 0.0		
+os: linux		
+files:		
+- source: target/dho4.war		
+destination: /home/ec2-user/app		
+hooks:		
+ApplicationStop:		
+- location: scripts/stop.sh		
+runas: ec2-user		
+AfterInstall:		
+- location: scripts/start.sh		
+  runas: ec2-user
+
