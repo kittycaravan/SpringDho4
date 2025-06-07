@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: target/*.war
+  - source: target/dho4.war
     destination: /home/ec2-user/app
 hooks:
   ApplicationStop:
