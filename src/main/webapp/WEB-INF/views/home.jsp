@@ -18,7 +18,9 @@
 <h1>
 	헬로 키티 월드 !
 	<hr>
-	야옹 야옹 야옹이 !  
+	야옹 야옹 야옹이 !
+	<hr>
+	css 적용중인데 잘 안되고 있음  
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
