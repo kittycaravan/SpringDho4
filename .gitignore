@@ -1,0 +1,62 @@
+# === Java ===
+*.class              # 컴파일된 클래스 파일 - 빌드 결과물이므로 저장소에 포함할 필요 없음
+*.log                # 로그 파일 - 실행 중 생성되는 임시 파일
+*.jar                # 패키징된 실행 파일 - 로컬에서 빌드된 결과
+*.war
+*.ear
+
+# === Maven ===
+/target/             # Maven 빌드 결과물 (jar, war 등) 저장 폴더
+pom.xml.tag          # Maven 릴리즈 플러그인이 생성하는 태그 파일
+pom.xml.releaseBackup # 릴리즈 이전 백업 파일
+pom.xml.versionsBackup
+pom.xml.next
+release.properties   # Maven 릴리즈 메타데이터
+
+# === STS / Eclipse ===
+.classpath           # Eclipse/STS 프로젝트 클래스 경로 설정
+.project             # Eclipse/STS 프로젝트 메타정보
+.settings/           # Eclipse/STS의 프로젝트별 설정 디렉토리
+bin/                 # 수동으로 지정된 빌드 출력 디렉토리
+.apt_generated/      # 어노테이션 프로세서로 생성된 코드
+.factorypath         # Eclipse APT(Annotation Processing Tool) 관련 설정
+.springBeans         # STS의 빈 분석 정보 캐시
+
+# === IntelliJ IDEA ===
+.idea/               # 프로젝트 환경설정 디렉토리
+*.iml                # 모듈 설정 파일
+
+# === NetBeans ===
+/nbproject/private/  # 사용자 개인 설정
+/build/              # NetBeans 빌드 디렉토리
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/         # NetBeans의 Gradle 관련 파일
+
+# === VS Code ===
+.vscode/             # 사용자 개인 설정 (launch.json, settings.json 등)
+
+# === Spring Boot (전환 시 대비용 항목) ===
+/spring-boot-devtools.properties # DevTools 설정
+/test-output/         # 테스트 결과 출력
+application-*.yml     # 민감 정보가 포함될 수 있음 (DB 패스워드 등)
+/application-*.properties
+*.h2.db               # H2 임베디드 DB 파일
+*.mv.db               # H2 DB 저장 파일 (mvstore)
+
+# === OS Files ===
+.DS_Store             # macOS 디렉토리 메타데이터 파일
+Thumbs.db             # Windows 이미지 캐시
+ehthumbs.db
+Desktop.ini           # Windows 폴더 설정 파일
+$RECYCLE.BIN/         # Windows 휴지통 메타폴더
+
+# === Lombok ===
+.lombok/              # Lombok 설정 캐시 파일
+
+# === 기타 ===
+*.swp                 # Vim 등의 임시 편집 파일
+*.bak                 # 백업 파일
+*.tmp                 # 임시 저장 파일
+
