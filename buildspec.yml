@@ -14,6 +14,6 @@ phases:
 
 artifacts:
   files:
-    - target/dho4.war
+    - target/*.war
     - appspec.yml
     - scripts/*
