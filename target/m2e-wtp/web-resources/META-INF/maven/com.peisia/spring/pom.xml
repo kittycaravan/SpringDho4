@@ -195,6 +195,9 @@
 		   
 	</dependencies>
     <build>
+    	
+    	<finalName>dho4</finalName><!-- 2025.6.7  -->
+    	
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
