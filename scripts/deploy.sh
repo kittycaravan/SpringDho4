@@ -13,19 +13,9 @@ WAR_DEST=$TOMCAT_DIR/webapps/ROOT.war
 log "배포 스크립트 시작"
 log "기존 파일 정리는 stop.sh에서 처리됨 - ROOT.war, ROOT/, dho4.war"
 
-# ⏳ WAR 파일 존재 확인 (최대 120초 대기)
-log "WAR 파일 존재 여부 확인 중 (최대 120초 대기)"
-MAX_WAIT=120
-WAITED=0
-while [ ! -f "$WAR_SRC" ] && [ $WAITED -lt $MAX_WAIT ]; do
-  log "WAR 파일이 아직 없습니다. 1초 대기 중... ($WAITED/$MAX_WAIT)"
-  sleep 1
-  WAITED=$((WAITED+1))
-done
-
 # ❌ 파일이 존재하지 않으면 오류 처리
 if [ ! -f "$WAR_SRC" ]; then
-  log "❌ 120초 기다렸지만 $WAR_SRC 파일이 존재하지 않습니다. 배포 중단."
+  log "❌ 오류: $WAR_SRC 파일이 존재하지 않습니다. 배포 중단."
   exit 1
 fi
 
