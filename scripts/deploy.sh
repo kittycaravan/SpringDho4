@@ -1,7 +1,10 @@
-#!/bin/bash						
-echo "Removing existing WAR file..."						
-rm -f /home/ec2-user/app/dho4.war						
-						
-echo "Deploying WAR..."						
-cp /home/ec2-user/app/dho4.war /opt/tomcat9/webapps/ROOT.war						
-exit 0						
+#!/bin/bash		
+		
+TOMCAT_DIR=/opt/tomcat9		
+WAR_SRC=/home/ec2-user/app/dho4.war		
+WAR_DEST=$TOMCAT_DIR/webapps/ROOT.war		
+		
+echo "Deploying WAR with mv..."		
+mv $WAR_SRC $WAR_DEST		
+		
+exit 0		
