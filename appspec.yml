@@ -23,16 +23,12 @@ hooks:
       # 기존 애플리케이션을 중단하는 스크립트입니다.
       # 톰캣 종료 및 이전 WAR/폴더 제거 작업을 수행합니다.
 
-  BeforeInstall:
+  AfterInstall:
     - location: scripts/deploy.sh
-      timeout: 60
       runas: ec2-user
       # WAR 파일을 톰캣 웹앱 디렉토리로 복사하는 작업입니다.
-      # timeout은 스크립트가 **60초 이내에 완료되지 않으면 실패 처리**합니다.
-      # 💡 일반적인 파일 복사라면 10~30초 이내면 충분하지만,
-      #    예외나 네트워크 지연을 고려해 **60초는 안정적인 범위**입니다.
 
-  AfterInstall:
+  ApplicationStart:
     - location: scripts/start.sh
       runas: ec2-user
       # 톰캣을 재시작하여 새 애플리케이션을 실행합니다.
