@@ -24,5 +24,10 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+<filedset>
+	<legend>배너</legend>
+</filedset>
+
 </body>
 </html>
