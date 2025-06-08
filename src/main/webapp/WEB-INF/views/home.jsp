@@ -11,7 +11,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>대항해시대4 v0.0.1.9</title>
+	<title>대항해시대4 v0.0.2.0</title>
 	<link rel="stylesheet" href="${cp}/resources/common.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
 </fieldset>
 <fieldset>
 	<legend>공지사항</legend>
-	<p>aws ci cd 적용 후 이것저것 테스트 중입니다.</p>
+	<p>aws ci cd 적용 완료했습니다. (푸시 자동 트리거는 아직입니다.)</p>
 </fieldset>
 
 </body>
