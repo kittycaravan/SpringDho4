@@ -1,19 +1,68 @@
+
+# 이 파일은 buildspec.yml 입니다.
+# AWS CodeBuild에서 어떤 작업을 어떤 순서로 실행할지 정의하는 설정 파일입니다.
+# 프로젝트 루트 디렉토리에 위치해야 자동으로 인식됩니다.
+
+# 🔍 YAML(YAML Ain’t Markup Language)이란?
+# - 들여쓰기를 통해 구조를 표현하는 설정 파일 포맷입니다.
+# - 탭 대신 **공백(SPACE)** 을 반드시 사용해야 하며, 들여쓰기가 문법의 핵심입니다.
+# - 설정파일, 자동화 도구 등에 자주 사용됩니다.
+
+# ❗ YAML 들여쓰기 규칙
+# - 들여쓰기는 **탭(TAB) 금지**, **스페이스(SPACE)만 사용**해야 합니다.
+# - 일반적으로 **2칸 또는 4칸 스페이스** 중 하나를 정해 일관되게 사용합니다.
+# - AWS 공식 예제들은 보통 2칸 들여쓰기를 사용합니다.
+
+# 💡 실수 방지 팁:
+# ✅ 올바른 예 (스페이스 2칸 사용)
+#   phases:
+#     install:
+#       commands:
+#         - echo Hello
+
+# ❌ 잘못된 예
+#   phases:
+#      install:   ← 간격 불일치
+#  	commands:   ← 탭 사용 (금지)
+
+# 🔍 buildspec.yml의 역할
+# - CodeBuild에서 소스를 빌드하고 결과물을 생성할 때, 그 순서와 명령을 정의합니다.
+# - 결과로 생성된 파일(WAR 등)을 "아티팩트"라고 하며, 이후 CodeDeploy로 전달됩니다.
+
 version: 0.2
+# buildspec 형식 버전입니다.
+# 🔸 0.2는 단계별 명확한 구분과 환경 설정, 아티팩트 설정이 가능하여 AWS가 권장합니다.
+# 🔸 0.1은 단순 명령어 나열만 지원하며 유연성이 떨어집니다.
 
 phases:
   install:
     runtime-versions:
       java: corretto11
+      # 사용할 Java 버전을 지정합니다. (Amazon Corretto 11)
     commands:
       - echo Installing Maven...
       - mvn clean install -DskipTests
+      # Maven 프로젝트 초기화 및 의존성 설치 (테스트는 생략)
+
   build:
     commands:
       - echo Building...
       - mvn package -DskipTests
+      # Maven을 사용해 WAR 파일을 생성합니다.
+      # 빌드된 결과물은 프로젝트의 /target 폴더에 저장됩니다.
 
 artifacts:
   files:
     - target/dho4.war
+      # Maven 빌드 결과물로 생성된 WAR 파일입니다.
+      # target 폴더는 Java에서 빌드 결과물이 저장되는 기본 폴더입니다.
+
     - appspec.yml
+      # CodeDeploy가 사용할 배포 설정 파일입니다.
+      # 어떤 파일을 어디에 배치하고, 어떤 스크립트를 어떤 순서로 실행할지를 정의합니다.
+      # 반드시 포함되어야 배포가 정상 작동합니다.
+
     - scripts/*
+      # 배포 중 실행할 셸 스크립트들이 들어 있는 폴더입니다.
+      # 예: stop.sh, deploy.sh, start.sh
+      # appspec.yml에서 이 스크립트들을 호출하므로 함께 전달되어야 합니다.

@@ -11,23 +11,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+	<title>대항해시대4 v0.0.1.0</title>
 	<link rel="stylesheet" href="${cp}/resources/common.css">
 </head>
 <body>
-<h1>
-	헬로 키티 월드 !
-	<hr>
-	야옹 야옹 야옹이 !
-	<hr>
-	css 적용중인데 잘 안되고 있음  
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<h1>대항해시대4</h1>
 
-<filedset>
-	<legend>배너</legend>
-</filedset>
+<fieldset>
+	<legend>현재시간</legend>
+	<P>${serverTime}</P>
+</fieldset>
+<fieldset>
+	<legend>공지사항</legend>
+	<p>aws ci cd 적용 후 이것저것 테스트 중입니다.</p>
+</fieldset>
 
 </body>
 </html>

@@ -1,16 +1,38 @@
+
+# 이 파일은 AWS CodeDeploy를 위한 appspec.yml 입니다.
+# 배포할 파일의 위치와 이름, 실행할 스크립트, 순서 등을 정의합니다.
+# EC2 인스턴스에 배포할 때 반드시 필요하며, 아티팩트에 포함되어야 작동합니다.
+
 version: 0.0
+# AppSpec 파일 형식 버전입니다.
+# 현재 EC2 배포에서는 version 0.0만 지원됩니다 (선택 사항이지만 명시하는 게 좋습니다).
+
 os: linux
+# 배포 대상 운영 체제를 명시합니다. (linux 또는 windows)
+
 files:
   - source: target/dho4.war
+    # buildspec.yml에서 만든 WAR 파일의 상대 경로입니다 (압축 해제된 기준).
     destination: /home/ec2-user/app
+    # EC2 인스턴스 내에서 파일을 배치할 경로입니다.
+
 hooks:
   ApplicationStop:
     - location: scripts/stop.sh
       runas: ec2-user
+      # 기존 애플리케이션을 중단하는 스크립트입니다.
+      # 톰캣 종료 및 이전 WAR/폴더 제거 작업을 수행합니다.
+
   BeforeInstall:
     - location: scripts/deploy.sh
       timeout: 60
       runas: ec2-user
+      # WAR 파일을 톰캣 웹앱 디렉토리로 복사하는 작업입니다.
+      # timeout은 스크립트가 **60초 이내에 완료되지 않으면 실패 처리**합니다.
+      # 💡 일반적인 파일 복사라면 10~30초 이내면 충분하지만,
+      #    예외나 네트워크 지연을 고려해 **60초는 안정적인 범위**입니다.
+
   AfterInstall:
     - location: scripts/start.sh
       runas: ec2-user
+      # 톰캣을 재시작하여 새 애플리케이션을 실행합니다.
