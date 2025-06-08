@@ -18,7 +18,7 @@ echo "Stopping Tomcat..."
 $TOMCAT_DIR/bin/shutdown.sh || true
 
 # 톰캣이 완전히 종료될 때까지 약간의 대기 시간을 줍니다.
-sleep 5
+sleep 10
 
 # 기존에 배포된 웹 애플리케이션 파일 및 폴더를 삭제합니다.
 # 예: ROOT.war, ROOT/ 디렉토리 등
