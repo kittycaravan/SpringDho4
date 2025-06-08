@@ -1,6 +1,30 @@
-#!/bin/bash	
-TOMCAT_DIR=/opt/tomcat9	
-	
-echo "Starting Tomcat..."	
-$TOMCAT_DIR/bin/startup.sh	
-exit 0	
+
+#!/bin/bash
+# 이 스크립트는 Bash 셸에서 실행됩니다.
+#
+# "#!/bin/bash"는 셰뱅(shebang)이라고 불리며,
+# 이 스크립트가 실행될 때 어떤 프로그램(셸)로 해석할지를 지정합니다.
+#
+# 여기서는 "/bin/bash"를 지정했는데,
+# 이것은 "bash"라는 셸을 사용한다는 뜻입니다.
+#
+# 🔍 [Bash란?]
+# - Bash는 "Bourne Again SHell"의 약자입니다.
+# - 리눅스와 macOS 시스템에서 가장 널리 사용되는 셸(Shell)입니다.
+# - 사용자가 입력한 명령을 해석해서 운영체제에 전달하는 역할을 합니다.
+# - 명령어 실행, 조건문, 반복문, 변수 등 스크립트 기능도 지원합니다.
+#
+# 따라서 이 스크립트는 Bash의 문법에 따라 실행되어야 하며,
+# 이를 명확하게 하기 위해 #!/bin/bash를 맨 위에 적습니다.
+
+# 톰캣이 설치된 경로를 변수로 정의합니다.
+TOMCAT_DIR=/opt/tomcat9
+
+# 콘솔에 톰캣 시작 메시지를 출력합니다.
+echo "Starting Tomcat..."
+
+# 정의된 경로에서 톰캣을 시작하는 명령어를 실행합니다.
+$TOMCAT_DIR/bin/startup.sh
+
+# 스크립트가 정상적으로 끝났음을 시스템에 알립니다.
+exit 0
