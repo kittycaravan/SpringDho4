@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # 이 스크립트는 Bash 셸에서 실행됩니다.
 
@@ -23,6 +22,9 @@ sleep 10
 # 기존에 배포된 웹 애플리케이션 파일 및 폴더를 삭제합니다.
 # 예: ROOT.war, ROOT/ 디렉토리 등
 rm -rf $TOMCAT_DIR/webapps/ROOT*
+
+# 이전에 배포된 WAR 파일도 삭제
+rm -f /home/ec2-user/app/dho4.war
 
 # 스크립트가 정상 종료되었음을 시스템에 알립니다.
 exit 0

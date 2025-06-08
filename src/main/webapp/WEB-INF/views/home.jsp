@@ -11,7 +11,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>대항해시대4 v0.0.1.3</title>
+	<title>대항해시대4 v0.0.1.4</title>
 	<link rel="stylesheet" href="${cp}/resources/common.css">
 </head>
 <body>
