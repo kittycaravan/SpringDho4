@@ -25,6 +25,7 @@
 <fieldset>
 	<legend>공지사항</legend>
 	<p>aws ci cd 적용 완료했습니다. (푸시 자동 트리거는 아직입니다.)</p>
+	<p>학원에서도 푸시 테스트 중</p>
 </fieldset>
 
 </body>
